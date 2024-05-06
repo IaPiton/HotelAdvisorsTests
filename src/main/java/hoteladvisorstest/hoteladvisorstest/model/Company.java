@@ -15,13 +15,17 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column (name = "name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "legal_form")
     private String legalForm;
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "address", referencedColumnName = "id")
+    @JoinColumn(name = "address", referencedColumnName = "id", nullable = false)
     private Address address;
+
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-     private Set<Branch> branch;
+    private Set<Branch> branch;
 
 }

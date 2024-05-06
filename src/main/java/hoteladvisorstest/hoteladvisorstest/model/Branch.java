@@ -13,14 +13,15 @@ public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "name")
+
+    @Column(name = "name", nullable = false)
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "address", referencedColumnName = "id")
+    @JoinColumn(name = "address", referencedColumnName = "id", nullable = false)
     Address address;
 
     @ManyToOne
-    @JoinColumn(name="company_id")
+    @JoinColumn(name = "company_id")
     private Company company;
 }

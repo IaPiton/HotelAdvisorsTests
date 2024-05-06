@@ -27,6 +27,7 @@ public class Address {
 
     @OneToOne(mappedBy = "address")
     private Company company;
+
     @OneToOne(mappedBy = "address")
     private Branch branch;
 
